@@ -1,2 +1,2 @@
-# HackerRank SQL server solutions
+# HackerRank SQL solutions
 ### https://www.hackerrank.com/neerajahire
