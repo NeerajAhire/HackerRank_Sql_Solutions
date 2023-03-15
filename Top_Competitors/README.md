@@ -1,1 +1,1 @@
-# https://www.hackerrank.com/challenges/full-score/problem?isFullScreen=true
+### https://www.hackerrank.com/challenges/full-score/problem?isFullScreen=true
