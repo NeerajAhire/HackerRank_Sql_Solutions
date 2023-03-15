@@ -1,0 +1,13 @@
+SELECT MAX(Submissions.hacker_id) AS Hid, MAX(Hackers.name) AS Hname FROM 
+Hackers INNER JOIN Submissions 
+ON Hackers.hacker_id = Submissions.hacker_id
+INNER JOIN (SELECT Challenges.challenge_id, Difficulty.score
+            FROM Challenges INNER JOIN Difficulty ON
+           Challenges.difficulty_level = Difficulty.difficulty_level)
+           AS Cte
+ON (Submissions.score = Cte.score AND
+    Submissions.challenge_id = Cte.challenge_id)
+GROUP BY 
+Submissions.hacker_id
+HAVING COUNT(Hackers.name) > 1
+ORDER BY COUNT(Hackers.name) DESC, Hid ASC
