@@ -1,0 +1,25 @@
+SELECT  A.Name AS Doctor, B.Name AS Professor, C.Name AS Simger, D.Name AS Actor
+FROM 
+(SELECT Name,  ROW_NUMBER() OVER (
+        ORDER BY Name
+    ) row_num
+FROM OCCUPATIONS WHERE Occupation = 'Doctor'
+) AS A FULL JOIN 
+(SELECT Name, ROW_NUMBER() OVER (
+        ORDER BY Name
+    ) row_num
+FROM OCCUPATIONS WHERE Occupation = 'Professor'
+) AS B
+ON A.row_num = B.row_num FULL JOIN
+(SELECT Name, ROW_NUMBER() OVER (
+        ORDER BY Name
+    ) row_num
+FROM OCCUPATIONS WHERE Occupation = 'Singer'
+) AS C
+ON B.row_num = C.row_num FULL JOIN
+(SELECT Name, ROW_NUMBER() OVER (
+        ORDER BY Name
+    ) row_num
+FROM OCCUPATIONS WHERE Occupation = 'Actor'
+) AS D
+ON C.row_num = D.row_num
