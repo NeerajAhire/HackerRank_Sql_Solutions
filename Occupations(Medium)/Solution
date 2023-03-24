@@ -1,4 +1,4 @@
-SELECT  A.Name AS Doctor, B.Name AS Professor, C.Name AS Simger, D.Name AS Actor
+SELECT  A.Name AS Doctor, B.Name AS Professor, C.Name AS Singer, D.Name AS Actor
 FROM 
 (SELECT Name,  ROW_NUMBER() OVER (
         ORDER BY Name
